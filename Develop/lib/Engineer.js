@@ -5,9 +5,13 @@ const Employee=require('./Employee');
 
 class Engineer extends Employee{
 
+    // Notice how the new property is included in the parameter: github
+
     constructor (name, id, email, github) {
 
+    // the word super is important - it pulls all the properties of the Employee class. If a property is not included in the small brackets - it will not be pulled
      super(name, id, email);
+     // as github is not property of employee class, so I have added this to the Engineer class as extension
      this.github=github;
 
 
