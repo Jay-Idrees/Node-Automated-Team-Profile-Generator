@@ -33,3 +33,47 @@ const render = require("./lib/htmlRenderer");
 // for further information. Be sure to test out each class and verify it generates an
 // object with the correct structure and methods. This structure will be crucial in order
 // for the provided `render` function to work! ```
+
+// Creating an array of question objects using inquirer
+
+
+const questionlist=[
+
+                           //////////////////////
+// Question object 1: Name
+{prompt:
+            
+        {
+            type: 'input',
+            name: 'name', // this is the name of the variable in which the repsponse is stored
+            message: "Please type the {{Position}}'s name",
+        },
+
+// Note that this 'for' is important as it is going to help segregate questions that maybe applicable for every poisions vs those that are only applicable to specific position in subsequent functions
+
+ for:'all'
+    
+    }, // cl br for name prompt
+                         //////////////////////
+
+// Question object 2: email
+    {prompt:
+            
+        {
+            type: 'input',
+            name: 'name ', 
+            message: "Please type the {{Position}}'s email address",
+        },
+
+ for:'all'
+    
+    } // cl be for prompt
+
+
+
+
+
+
+
+
+] // cl br for the questionlist
