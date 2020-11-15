@@ -138,11 +138,11 @@ for:'intern'
     {
         type: "list", 
         message: "Please select the employee's position", 
-        name: "type", 
+        name: "position", 
         choices: [
         {name: "Engineer", value: "engineer"},
         {name: "Intern", value: "intern"},
-        {name: "I have finished adding employees to the list", value: "none"}
+        {name: "I have finished adding employees to the list", value: "done"}
         ]
     
     },               
@@ -151,3 +151,23 @@ for:'all'
                 }, // cl be for position prompt
 
 ]; // cl br for the questionlist
+
+// Creating an async await function that does the following
+
+// 1) Extracting data from the question list array of question objects 
+// 2) Packaging the extrated data into employe objects specific to position
+// 3) Using the switch function to alternate between employee positions
+// 4) Pusing employee objects into the employeelist array of employee objects
+// 5) Asigning unique ids with increments of 1 for each of the unique employee
+
+async function main(){
+    const employeelist=[];
+    
+    // Setting the default position to 1 and the default position to manager
+    let id=1;
+    let position='manager';
+
+    while (!position===none)
+
+
+}
