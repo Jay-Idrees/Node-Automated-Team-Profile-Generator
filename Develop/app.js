@@ -11,31 +11,6 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 const render = require("./lib/htmlRenderer");
 
 
-// Write code to use inquirer to gather information about the development team members,
-// and to create objects for each team member (using the correct classes as blueprints!)
-
-// After the user has input all employees desired, call the `render` function (required
-// above) and pass in an array containing all employee objects; the `render` function will
-// generate and return a block of HTML including templated divs for each employee!
-
-// After you have your html, you're now ready to create an HTML file using the HTML
-// returned from the `render` function. Now write it to a file named `team.html` in the
-// `output` folder. You can use the variable `outputPath` above target this location.
-// Hint: you may need to check if the `output` folder exists and create it if it
-// does not.
-
-// HINT: each employee type (manager, engineer, or intern) has slightly different
-// information; write your code to ask different questions via inquirer depending on
-// employee type.
-
-// HINT: make sure to build out your classes first! Remember that your Manager, Engineer,
-// and Intern classes should all extend from a class named Employee; see the directions
-// for further information. Be sure to test out each class and verify it generates an
-// object with the correct structure and methods. This structure will be crucial in order
-// for the provided `render` function to work! ```
-
-// Creating an array of question objects using inquirer
-
 
 const questionlist=[
 
@@ -119,22 +94,6 @@ for:'intern'
                 ///////// Selecting Employee by their position //////
 
 {prompt:
-
-
-
-    // {
-    //     type: 'expand',
-    //     name: 'position',
-    //     message: "Please select the employee's position",
-    //     choices: 
-    //     [
-    //         {key: 'a', value: 'engineer',},
-    //         {key: 'b', value: 'intern',},
-    //         {key: 'c', value: 'done',},
-    
-    //     ],
-    //   },
-
     {
         type: "list", 
         message: "Please select the employee's position", 
@@ -142,7 +101,7 @@ for:'intern'
         choices: [
         {name: "Engineer", value: "engineer"},
         {name: "Intern", value: "intern"},
-        {name: "I have finished adding employees to the list", value: "done"}
+        {name: "I have finished adding employees", value: "done"}
         ]
     
     },               
@@ -152,6 +111,13 @@ for:'all'
 
 ]; // cl br for the questionlist
 
+
+
+
+
+
+// console.log(questionlist)
+
 // Creating an async await function that does the following
 
 // 1) Extracting data from the question list array of question objects 
@@ -160,46 +126,107 @@ for:'all'
 // 4) Pusing employee objects into the employeelist array of employee objects
 // 5) Asigning unique ids with increments of 1 for each of the unique employee
 
-async function main(){
-    const employeelist=[];
+
+
+// Now I want of get the questions from the questionlist object that are specific to the employee position
+
+function pull_Qs_by(employee_type){
+ 
+    // The function will automatically reqognize that refers to the question object inside the question list
+    // I am first grabbing the the questions based on position and then modifying them such the {{position}} is replaced by the actual position
+    const question_shortlist=questionlist.filter(function(question_object){
+        return (question_object.for==='all' || question_object.for===employee_type);
+       
+    }); // br close filter
+    
+    // Now I want to replace the place holder {{position}} with the actual employee type
+    // Note that here I am using the variable questions which already contains the filtered question list according to position from the questionlist object
+    const modified_Qs=question_shortlist.map(function(question_object){
+        //Grab whatever is inside each of the prompt object of the question object, copy it and save it into a variable called temp
+        const x={...question_object.prompt}
+        // Inside that prompt object that is just copied- replace {{position}} with the position
+        // Note that here I am using x.message, because I only want the message to be updated
+        x.message=x.message.replace ("{{Position}}", employee_type)
+        return x
+    });
+    
+    return modified_Qs;
+    
+} // br close for the get questions function
+    
+console.log (pull_Qs_by('intern'))
+    
+
+
+generate_team_profile()
+
+async function generate_team_profile(){
+    const employee_list=[];
     
     // Setting the default position to 1 and the default position to manager
     let id=1;
-    let position='manager';
+    let employee_type='manager';
     
 
-    while (!position==='done'){
+    while (employee_type !=='done') {
      
         // Initiating inquirer prompt, extrating only pertinent question objects from the question list array and then capturing response into a response variable
-        const response =await inquirer.prompt(getQuestionsfor(position));
-        console.log(response)
+        const typed_answer =await inquirer.prompt(pull_Qs_by(employee_type));
+        console.log(typed_answer)
 
-        switch(position){
+        switch(employee_type){
             case 'manager':
-                employeelist.push(new Manager(response.name, id, response.email, response.officeNumber));
+                employee_list.push(new Manager(typed_answer.name, id, typed_answer.email, typed_answer.officeNumber));
                 break; // the break statement breaks out of a block of code in the switch case
 
-
              case 'engineer':
-                employeelist.push(new Engineer(response.name, id, response.email, response.github));
+                employee_list.push(new Engineer(typed_answer.name, id, typed_answer.email, typed_answer.github));
                 break; 
 
-             case 'engineer':
-                 employeelist.push(new intern(response.name, id, response.email, response.school));
+             case 'intern':
+                 employee_list.push(new Intern(typed_answer.name, id, typed_answer.email, typed_answer.school));
                 // Note that it is not necessary to break out of the block case
-            
+                break;
 
             
         } // br close for the swith case
 
         id++;
-        position=response.position
+        employee_type=typed_answer.position
 
 
 
     } // br close for the while loop
 
 
+
+
+
+
+
+
+const renderHTML=render(employee_list);
+
+fs.access (OUTPUT_DIR, function(err){
+
+    if (err){
+        fs.mkdirSync(OUTPUT_DIR);
+    }
+
+    fs.writeFile(outputPath, renderHTML, function(err){
+        if (err) throw err;
+        console.log("Thank you for using Team Profile Generator, A new team members profile has been generated and stored in the output folder as team.html")
+    })
+
+})//br close for the fs.access
+
+
+
+
+
 }// br close async await function
 
-main()
+
+
+
+
