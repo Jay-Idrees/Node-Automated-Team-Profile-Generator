@@ -166,8 +166,40 @@ async function main(){
     // Setting the default position to 1 and the default position to manager
     let id=1;
     let position='manager';
+    
 
-    while (!position===none)
+    while (!position==='done'){
+     
+        // Initiating inquirer prompt, extrating only pertinent question objects from the question list array and then capturing response into a response variable
+        const response =await inquirer.prompt(getQuestionsfor(position));
+        console.log(response)
+
+        switch(position){
+            case 'manager':
+                employeelist.push(new Manager(response.name, id, response.email, response.officeNumber));
+                break; // the break statement breaks out of a block of code in the switch case
 
 
-}
+             case 'engineer':
+                employeelist.push(new Engineer(response.name, id, response.email, response.github));
+                break; 
+
+             case 'engineer':
+                 employeelist.push(new intern(response.name, id, response.email, response.school));
+                // Note that it is not necessary to break out of the block case
+            
+
+            
+        } // br close for the swith case
+
+        id++;
+        position=response.position
+
+
+
+    } // br close for the while loop
+
+
+}// br close async await function
+
+main()
