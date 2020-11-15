@@ -39,8 +39,9 @@ const render = require("./lib/htmlRenderer");
 
 const questionlist=[
 
-                           //////////////////////
+                           /////////// NAME ///////////
 // Question object 1: Name
+
 {prompt:
             
         {
@@ -54,26 +55,99 @@ const questionlist=[
  for:'all'
     
     }, // cl br for name prompt
-                         //////////////////////
+                         /////////// EMAIL///////////
 
 // Question object 2: email
+
     {prompt:
             
         {
             type: 'input',
-            name: 'name ', 
+            name: 'email', 
             message: "Please type the {{Position}}'s email address",
         },
 
  for:'all'
     
-    } // cl be for prompt
+    }, // cl br for email prompt
+                        //////////OFFICE NUMBER for manager //////////
+
+// Question object 3: office number
+
+{prompt:
+            
+    {
+        type: 'input',
+        name: 'officeNumber', 
+        message: "Please type the Manager's office number",
+    },
+
+// I only want this question to display for manager
+for:'manager'
+
+}, // cl br for office number prompt
+
+                     /////////////GIT HUB for Software Engineer///////////////
+
+// Question object 4: github username
+{prompt:
+            
+    {
+        type: 'input',
+        name: 'github', 
+        message: "Please type the Engineer's Git-Hub Username",
+    },
+
+for:'engineer'
+
+}, // cl br for github username prompt
+
+                //////////// School name for intern /////////////////
+// Question object 5: school name
+{prompt:
+            
+    {
+        type: 'input',
+        name: 'school', 
+        message: "Please type the name of the school attended by the intern",
+    },
+
+for:'intern'
+
+}, // cl be for email prompt
+
+                ///////// Selecting Employee by their position //////
+
+{prompt:
 
 
 
+    // {
+    //     type: 'expand',
+    //     name: 'position',
+    //     message: "Please select the employee's position",
+    //     choices: 
+    //     [
+    //         {key: 'a', value: 'engineer',},
+    //         {key: 'b', value: 'intern',},
+    //         {key: 'c', value: 'done',},
+    
+    //     ],
+    //   },
 
+    {
+        type: "list", 
+        message: "Please select the employee's position", 
+        name: "type", 
+        choices: [
+        {name: "Engineer", value: "engineer"},
+        {name: "Intern", value: "intern"},
+        {name: "I have finished adding employees to the list", value: "none"}
+        ]
+    
+    },               
+    
+for:'all'
+                }, // cl be for position prompt
 
-
-
-
-] // cl br for the questionlist
+]; // cl br for the questionlist
