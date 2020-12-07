@@ -67,6 +67,8 @@ By completing this project I was able to master application of the following pro
 - Notice how a variety of inquirer features are used such as the input, expand, editor when capturing data from the user
 
 - Using the JEST package in Node.JS and performing tests using javascript
+   
+   ![Testing](./Assets/testing.png)
 
 - Use of Node.JS to generate HTML with Javascript code. Notice how the javascript code is used to create employee classes and then a renderhtml function is used to replace HTML text with variables. Inquirer captures the user inputs into variables to be passed onto functions. The renderhtml function then generates a team-profile html page by modifying existing templates and replacing the placeholders with the actual data using object oriented programming.
 
