@@ -4,7 +4,7 @@
 This mini-fullStack application is designed for employers to automatically generate HTML profiles consisting of teams of interns, employees, software engineers and managers. The backend components of this application utilize inquirer and Node.JS to gather user input regarding an employee.This information is then passed on to the frontend by modifying an HTML template that generate a new html employee team page. I developed this application during the 6th week of coding bootcamp at Columbia University, NY. Date of publication: 10/26/2020
 
 
-[Watch a video demonstrating the app functionality]()<br />
+[Watch a video demonstrating the app functionality](https://youtu.be/JyrUOcsbjlw)<br />
 
 ## Contact Programmer for questions
 
