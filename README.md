@@ -1,4 +1,4 @@
-# Auto Employee Team Profile Generator
+# Node Employee Team Profile Generator
 
 ## About the Project
 This mini-fullStack application is designed for employers to automatically generate HTML profiles consisting of teams of interns, employees, software engineers and managers. The backend components of this application utilize inquirer and Node.JS to gather user input regarding an employee.This information is then passed on to the frontend by modifying an HTML template that generate a new html employee team page. I developed this application during the 6th week of coding bootcamp at Columbia University, NY. Date of publication: 10/26/2020
@@ -74,14 +74,16 @@ By completing this project I was able to master application of the following pro
 
 - Effectively using filter, map, foreach methods in object oriented programming.
 
+- Using Node.JS to generate a high quality readme file. 
 
 ## Key files in the repository
 
+```
 htmlRenderer.js <br />
 app.js <br />
 team.html <br>
 Manager.js
-
+```
 
 
 ## Installation
