@@ -154,7 +154,7 @@ function pull_Qs_by(employee_type){
     
 } // br close for the get questions function
     
-console.log (pull_Qs_by('intern'))
+// console.log (pull_Qs_by('intern'))
     
 
 
