@@ -78,12 +78,12 @@ By completing this project I was able to master application of the following pro
 
 ## Key files in the repository
 
-```
+
 htmlRenderer.js <br />
 app.js <br />
 team.html <br>
 Manager.js
-```
+
 
 
 ## Installation
