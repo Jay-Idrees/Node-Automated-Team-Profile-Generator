@@ -68,7 +68,7 @@ By completing this project I was able to master application of the following pro
 
 - Using the JEST package in Node.JS and performing tests using javascript
 
-![Employee Summary 1](./Assets/10-OOP-homework-demo-1.png)
+![Testing](./Assets/testing.png)
    
    ![Testing](./assets/testing.PNG)
 
