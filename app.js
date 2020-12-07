@@ -154,7 +154,7 @@ function pull_Qs_by(employee_type){
     
 } // br close for the get questions function
     
-console.log (pull_Qs_by('intern'))
+// console.log (pull_Qs_by('intern'))
     
 
 
@@ -172,7 +172,7 @@ async function generate_team_profile(){
      
         // Initiating inquirer prompt, extrating only pertinent question objects from the question list array and then capturing response into a response variable
         const typed_answer =await inquirer.prompt(pull_Qs_by(employee_type));
-        console.log(typed_answer)
+        // console.log(typed_answer)
 
         switch(employee_type){
             case 'manager':
