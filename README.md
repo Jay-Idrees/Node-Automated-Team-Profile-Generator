@@ -1,7 +1,7 @@
 # Node Employee Team Profile Generator
 
 ## About the Project
-This mini-fullStack application is designed for employers to automatically generate HTML profiles consisting of teams of interns, employees, software engineers and managers. The backend components of this application utilize inquirer and Node.JS to gather user input regarding an employee.This information is then passed on to the frontend by modifying an HTML template that generate a new html employee team page. I developed this application during the 6th week of coding bootcamp at Columbia University, NY. Date of publication: 10/26/2020
+This mini-fullStack application is designed for employers to automatically generate HTML profiles consisting of teams of interns, employees, software engineers and managers. The backend components of this application utilize inquirer and Node.JS to gather user input regarding an employee.This information is then passed on to the Front-End by modifying an HTML template that generate a new html employee team page. I developed this application during the 6th week of coding bootcamp at Columbia University, NY. Date of publication: 10/26/2020
 
 
 [Watch a video demonstrating the app functionality](https://youtu.be/JyrUOcsbjlw)<br />
@@ -10,7 +10,7 @@ This mini-fullStack application is designed for employers to automatically gener
 
 Jay J. Idrees, MD, MPH<br />
 Full-Stack Software Engineer<br />
-[JIDREES](https://github.com/jidrees) ![Github](http://img.shields.io/badge/github-black?style=flat&logo=github)<br />
+[JAY-IDREES](https://github.com/Jay-Idrees) ![Github](http://img.shields.io/badge/github-black?style=flat&logo=github)<br />
 jidrees@live.com
 
 
@@ -58,19 +58,19 @@ Jest
 
 By completing this project I was able to master application of the following programming skills: 
 
-- Using object oriented programming including the use of classes, constructor functions, export modules and storing user information into employee category data objects
+- Using object oriented programming including the use of classes, constructor functions, export modules and storing user information into data objects based on employee category (e-g Software Engineer, Manager etc)
 
 - Using classes in Javascript object oriented programing. For instance in this app I created an generic employee class and then extended this class to create subclasses for Software Engineer, Intern and Manager.
 
 - Using the inquirer package to prompt questions and capturing user responses into variables
 
-- Notice how a variety of inquirer features are used such as the input, expand, editor when capturing data from the user
+- Notice how a variety of inquirer features are used  to collect infromation from the user such as using input, expand, editor when capturing data from the user
 
 - Using the JEST package in Node.JS and performing tests using javascript
 
    ![Testing](./assets/testing.png)
 
-- Use of Node.JS to generate HTML with Javascript code. Notice how the javascript code is used to create employee classes and then a renderhtml function is used to replace HTML text with variables. Inquirer captures the user inputs into variables to be passed onto functions. The renderhtml function then generates a team-profile html page by modifying existing templates and replacing the placeholders with the actual data using object oriented programming.
+- Use of Node.JS to generate HTML with Javascript code. Notice how the javascript code is used to create employee classes and then a renderhtml function is used to replace HTML text with actual data from variables. Inquirer captures the user inputs into variables to be passed onto functions. The renderhtml function then generates a team-profile html page by modifying existing templates and replacing the placeholders with the actual data using object oriented programming.
 
 - Using RegExp object in matching text and substituding placeholders with actual employee data
 
